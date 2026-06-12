@@ -1,0 +1,7 @@
+# Nix build results
+result
+result-*
+
+# Personal Claude Code settings (not team-shared)
+CLAUDE.local.md
+.claude/settings.local.json
