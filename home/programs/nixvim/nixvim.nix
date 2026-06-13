@@ -13,6 +13,7 @@
         ./plugin/lsp.nix
         ./plugin/pantran.nix
         ./plugin/snacks.nix
+        ./plugin/noice.nix
       ];
 
     };
