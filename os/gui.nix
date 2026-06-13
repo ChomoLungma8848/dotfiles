@@ -2,7 +2,9 @@
 {
   imports = [
     ./common.nix
-    /etc/nixos/hardware-configuration.nix
+    # hardware-configuration.nix はここには置かない:
+    #   - #nixos プロファイルでは flake.nix 側の外部 module で /etc/nixos/hardware-configuration.nix を注入 (--impure)
+    #   - #install プロファイルでは disko + os/hardware/generic.nix で代替 (pure)
   ];
 
   # ブートローダー
@@ -12,6 +14,11 @@
   # ネットワーク
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
 
   # X11 / GNOME
   services.xserver.enable = true;
