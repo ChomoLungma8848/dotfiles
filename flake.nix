@@ -36,15 +36,18 @@
     in
     {
       nixosConfigurations = {
-        # ネイティブ NixOS (GUI) 環境（既存機向け）
-        # /etc/nixos/hardware-configuration.nix を impure で読むため --impure が必要:
-        #   sudo nixos-rebuild switch --flake .#nixos --impure
+        # ネイティブ NixOS (GUI) 環境（#install でセットアップしたマシンの再ビルド用）
+        # disko + generic.nix で hardware-configuration.nix を不要にしているため pure 評価可能:
+        #   sudo nixos-rebuild switch --flake .#nixos
         nixos = inputs.nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./os/gui.nix
-            # hardware-configuration.nix を外部 module として注入（gui.nix を純粋に保つ）
-            { imports = [ /etc/nixos/hardware-configuration.nix ]; }
+            # disko によるディスク宣言（fileSystems.* を自動生成）
+            inputs.disko.nixosModules.disko
+            ./os/disk-config.nix
+            # 汎用ハードウェアモジュール（hardware-configuration.nix の代替）
+            ./os/hardware/generic.nix
           ];
         };
 

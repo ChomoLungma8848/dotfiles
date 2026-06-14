@@ -6,7 +6,7 @@
     # ./hyprlauncher.nix
     ./rofi
     ./mako.nix
-    ./swww.nix
+    ./awww.nix
     ./hyprlock.nix
     ./hypridle.nix
   ];
@@ -163,7 +163,7 @@
       exec-once = [
         "fcitx5 -d"
         "waybar"
-        "$HOME/.config/hypr/scripts/swww-init.sh"
+        "$HOME/.config/hypr/scripts/awww-init.sh"
         "hypridle"
         "nm-applet --indicator"
         "blueman-applet"

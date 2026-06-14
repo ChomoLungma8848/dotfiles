@@ -2,9 +2,6 @@
 {
   imports = [
     ./common.nix
-    # hardware-configuration.nix はここには置かない:
-    #   - #nixos プロファイルでは flake.nix 側の外部 module で /etc/nixos/hardware-configuration.nix を注入 (--impure)
-    #   - #install プロファイルでは disko + os/hardware/generic.nix で代替 (pure)
   ];
 
   # ブートローダー
@@ -55,7 +52,6 @@
 
   # プログラム (GUI固有)
   programs.hyprland.enable = true;
-  programs.firefox.enable = true;
 
   # 日本語入力 (fcitx5-mozc)
   i18n.inputMethod = {

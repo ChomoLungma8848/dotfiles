@@ -2,7 +2,6 @@
 {
   imports = [
     ./programs/zsh.nix
-    # ./programs/neovim.nix
     ./programs/nixvim/nixvim.nix
     ./programs/git.nix
     ./programs/starship.nix
@@ -18,10 +17,6 @@
       pingu
       pokemon-colorscripts
       ripgrep
-      # git      # programs.git.enable = true で管理
-      # starship # programs.starship.enable = true で管理
-      # zsh      # programs.zsh.enable = true で管理
-      gh
       ghq
       lazygit
       fzf
