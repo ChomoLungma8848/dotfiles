@@ -23,6 +23,7 @@
           "pulseaudio"
           "bluetooth"
           "network"
+          "tray"
           "backlight"
           "battery"
           "clock"
@@ -118,7 +119,12 @@
           format-disconnected = "󰤯 ";
           tooltip-format-wifi = "{essid} ({signalStrength}%)\n{ipaddr}";
           tooltip-format-ethernet = "{ifname}\n{ipaddr}";
-          on-click = "nm-connection-editor";
+          on-click = "nm-applet --indicator";
+        };
+
+        tray = {
+          icon-size = 18;
+          spacing = 10;
         };
 
         backlight = {
@@ -396,6 +402,15 @@
 
       #network.disconnected {
         color: @overlay0;
+      }
+
+      /* Tray */
+      #tray {
+        color: @text;
+      }
+
+      #tray:hover {
+        background: alpha(@surface2, 0.8);
       }
 
       /* Backlight */

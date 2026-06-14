@@ -165,6 +165,8 @@
         "waybar"
         "$HOME/.config/hypr/scripts/swww-init.sh"
         "hypridle"
+        "nm-applet --indicator"
+        "blueman-applet"
       ];
     };
   };
