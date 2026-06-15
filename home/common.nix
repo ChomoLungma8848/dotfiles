@@ -7,14 +7,15 @@
     ./programs/starship.nix
   ];
 
-  home = {
+  home = rec {
     stateVersion = "25.11";
+    username = "chomo";
+    homeDirectory = "/home/${username}";
     packages = with pkgs; [
       bat
       bottom
       eza
       httpie
-      pingu
       pokemon-colorscripts
       ripgrep
       ghq
