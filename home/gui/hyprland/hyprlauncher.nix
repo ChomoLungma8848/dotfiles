@@ -1,25 +1,27 @@
-{ pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    hyprlauncher
-  ];
+  services.hyprlauncher = {
+    enable = true;
 
-  # hyprlauncher設定
-  xdg.configFile."hyprlauncher/config.toml".text = ''
-    [general]
-    terminal = "wezterm"
-
-    [style]
-    width = 600
-    height = 400
-    border_radius = 10
-    font_family = "JetBrainsMono Nerd Font"
-    font_size = 14
-
-    [colors]
-    background = "#1e1e2e"
-    text = "#cdd6f4"
-    border = "#89b4fa"
-    selection = "#585b70"
-  '';
+    # The following are default settings.
+    # settings = {
+    #   general = {
+    #     grab_focus = true;
+    #   };
+    #   cache = {
+    #     enabled = true;
+    #   };
+    #   finders = {
+    #     default_finder = "desktop";
+    #     desktop_prefix = "";
+    #     unicode_prefix = ".";
+    #     math_prefix = "=";
+    #     font_prefix = "'";
+    #     desktop_launch_prefix = "";
+    #     desktop_icons = true;
+    #   };
+    #   ui = {
+    #     window_size = "400 260";
+    #   };
+    # };
+  };
 }
