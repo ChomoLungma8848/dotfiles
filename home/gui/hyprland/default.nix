@@ -7,10 +7,10 @@
     # ./fuzzel.nix
     # ./hyprlauncher.nix
     ./rofi
-    ./mako.nix
-    ./awww.nix
-    ./hyprlock.nix
-    ./hypridle.nix
+    # ./mako.nix
+    # ./awww.nix
+    # ./hyprlock.nix
+    # ./hypridle.nix
   ];
 
   # スクリーンショット用ツール
@@ -28,6 +28,8 @@
     INPUT_METHOD = "fcitx";
     GLFW_IM_MODULE = "ibus";
   };
+
+  xdg.configFile."hypr/hyprland.conf".force = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -169,8 +171,8 @@
         # "wqyber"
         # "ashell"
         "noctalia-shell"
-        "$HOME/.config/hypr/scripts/awww-init.sh"
-        "hypridle"
+        # "$HOME/.config/hypr/scripts/awww-init.sh"
+        # "hypridle"
         "nm-applet --indicator"
         "blueman-applet"
       ];
