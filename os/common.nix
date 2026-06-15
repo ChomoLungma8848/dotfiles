@@ -1,4 +1,3 @@
-{ ... }:
 {
   # タイムゾーン
   time.timeZone = "Asia/Tokyo";
@@ -17,7 +16,7 @@
     LC_TIME = "ja_JP.UTF-8";
   };
 
-  # プログラム (OS固有設定のみ)
+  # プログラム
   programs.zsh.enable = true;
 
   # Nix設定
