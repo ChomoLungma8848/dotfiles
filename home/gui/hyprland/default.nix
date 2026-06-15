@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ./waybar.nix
+    # ./waybar.nix
+    ./ashell.nix
     # ./fuzzel.nix
     # ./hyprlauncher.nix
     ./rofi
@@ -162,7 +163,7 @@
       # 自動起動
       exec-once = [
         "fcitx5 -d"
-        "waybar"
+        "ashell"
         "$HOME/.config/hypr/scripts/awww-init.sh"
         "hypridle"
         "nm-applet --indicator"
