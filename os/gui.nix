@@ -18,16 +18,16 @@
   services.blueman.enable = true;
 
   # X11 / GNOME
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
+  # services.desktopManager.gnome.enable = true;
+  # services.xserver.xkb = {
+  #   layout = "us";
+  #   variant = "";
+  # };
 
   # 印刷
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   # オーディオ (PipeWire)
   services.pulseaudio.enable = false;
@@ -51,7 +51,10 @@
   };
 
   # プログラム (GUI固有)
-  programs.hyprland.enable = true;
+  programs.hyprland = { 
+    enable = true;
+    withUWSM = false;
+  };
 
   # 日本語入力 (fcitx5-mozc)
   i18n.inputMethod = {
