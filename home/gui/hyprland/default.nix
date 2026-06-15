@@ -2,7 +2,8 @@
 {
   imports = [
     # ./waybar.nix
-    ./ashell.nix
+    # ./ashell.nix
+    ./noctalia.nix
     # ./fuzzel.nix
     # ./hyprlauncher.nix
     ./rofi
@@ -101,6 +102,8 @@
       "$mod" = "SUPER";
 
       bind = [
+        "$mod, Space, exec, noctalia-shell ipc call launcher toggle"
+
         "$mod, Return, exec, wezterm"
         "$mod, Q, killactive,"
         "$mod, M, exit,"
@@ -163,7 +166,9 @@
       # 自動起動
       exec-once = [
         "fcitx5 -d"
-        "ashell"
+        # "wqyber"
+        # "ashell"
+        "noctalia-shell"
         "$HOME/.config/hypr/scripts/awww-init.sh"
         "hypridle"
         "nm-applet --indicator"

@@ -25,6 +25,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     graftx.url = "github:myuron/graftx";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/legacy-v4";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -126,6 +130,7 @@
           modules = [
             ./home/gui.nix
             inputs.nixvim.homeModules.nixvim
+            inputs.noctalia.homeModules.default
             (
               { pkgs, ... }:
               {
