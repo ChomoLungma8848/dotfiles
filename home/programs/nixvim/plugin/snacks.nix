@@ -19,6 +19,9 @@
           { section = "keys"; gap = 1; }
         ];
       };
+      notifier = {
+        enable = true;
+      };
     };
   };
 }
