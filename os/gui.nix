@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ./common.nix
@@ -53,10 +53,15 @@
   };
 
   # プログラム (GUI固有)
-  programs.hyprland = {
-    enable = true;
-    withUWSM = false;
-  };
+  programs.hyprland.enable = true;
+
+  # remove "hyprland(uwsm-managed)" from gdm session list.
+  services.displayManager.sessionPackages = lib.mkForce [
+    (pkgs.runCommand "hyprland-session-only" { passthru.providedSessions = [ "hyprland" ]; } ''
+      mkdir -p $out/share/wayland-sessions
+      ln -s ${pkgs.hyprland}/share/wayland-sessions/hyprland.desktop $out/share/wayland-sessions/
+    '')
+  ];
 
   # 日本語入力 (fcitx5-mozc)
   i18n.inputMethod = {
