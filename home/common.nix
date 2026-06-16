@@ -13,10 +13,7 @@
     homeDirectory = "/home/${username}";
     packages = with pkgs; [
       bat
-      bottom
       eza
-      httpie
-      pokemon-colorscripts
       ripgrep
       ghq
       lazygit
@@ -25,7 +22,6 @@
       go
       jq
       nixfmt
-      wl-clipboard
       inputs.graftx.packages.${pkgs.system}.default
     ];
     sessionPath = [ "$HOME/go/bin" ];
