@@ -25,6 +25,8 @@
   #   layout = "us";
   #   variant = "";
   # };
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.gdm-password.enableGnomeKeyring = true;
 
   # 印刷
   # services.printing.enable = true;
@@ -51,7 +53,7 @@
   };
 
   # プログラム (GUI固有)
-  programs.hyprland = { 
+  programs.hyprland = {
     enable = true;
     withUWSM = false;
   };
