@@ -1,0 +1,50 @@
+{
+  "skill_name": "create-knowledge",
+  "evals": [
+    {
+      "id": 1,
+      "name": "ecs-fargate-alb-healthcheck-project-scope",
+      "prompt": "さっきECS Fargateのサービスで、ALBのヘルスチェックがずっとunhealthyになる問題を解決したから、ナレッジに残しておいて。\n\n状況: 新しいECS Fargateサービスをデプロイしたら、ALBのターゲットグループのヘルスチェックが何度やってもunhealthyになり、タスクが起動して数十秒後にkillされて再起動を繰り返すループになってた。\n\nCloudWatch Logsのタスクログを見ると起動シーケンスの途中で止まっていて、最後に出ていたログがこれ:\n```\n[fluent-bit] [error] [output:cloudwatch_logs:cloudwatch_logs.0] PutLogEvents API responded with error='AccessDeniedException', message='User: arn:aws:sts::123456789012:assumed-role/ecsTaskRole/xxxx is not authorized to perform: logs:PutLogEvents on resource: arn:aws:logs:ap-northeast-1:123456789012:log-group:/ecs/my-service:*'\n```\n\nタスクロールに `logs:CreateLogStream` と `logs:PutLogEvents` の権限を付け忘れていたのが根本原因。fluent-bitがログ送信に失敗してブロッキングでリトライを繰り返している間に、アプリのヘルスチェック用エンドポイント(`/healthz`)がbindされる前にコンテナがkillされていた。IAMロールに権限を追加したら一発で直った。\n\nヘルスチェックのタイムアウトを30秒→60秒に伸ばすのも試したけど、それは何の意味もなかった(根本原因と無関係だったので当然だけど)。",
+      "expected_output": "type: troubleshoot, scope: project の知見ファイルが、与えられた作業ディレクトリ(gitリポジトリ)の .claude/knowledge/ 配下に作成される。エラーメッセージが原文ママ含まれ、根本原因(IAM権限不足)、解決策(具体的なIAMポリシー追加)、Dead ends(タイムアウト延長は無意味だった)が分けて書かれている。",
+      "files": [],
+      "expectations": [
+        "プロジェクトの.claude/knowledge/配下(実ホームではない)にMarkdownファイルが作成されている",
+        "frontmatterにtype: troubleshootとscope: projectが明記されている",
+        "frontmatterの必須フィールド(title/id/type/scope/created/updated/last_verified/status/author/tags/environment/confidence/related)が揃っている",
+        "AccessDeniedException/PutLogEventsのエラーメッセージが原文ママ本文に含まれている",
+        "原因が「確証」か「仮説」かを明記する形で書かれている",
+        "コピペで再現できる具体的なIAMポリシー/コマンドが解決策に含まれている",
+        "ヘルスチェックタイムアウト延長が無意味だったことがDead endsとして明記されている",
+        "テンプレートのプレースホルダコメント(<!-- ... -->)が残っていない"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "adhd-protocol-framing-user-scope",
+      "prompt": "これはどのプロジェクトにも関係ない話なんだけど、自分の考え方として残しておきたいことがあって。\n\n自分はADHDがあって、最近気づいたのは「ADHDを『欠陥』として捉えるより『通信プロトコルの違い』として捉えた方が、自分にとっても周りの人にとっても扱いやすい」ということ。たとえばTCPとUDPみたいに、どっちが優れているわけじゃなくて前提にしている保証の種類が違うだけ、というイメージ。これに気づいてから、タスクの頼まれ方や説明の仕方を「相手のプロトコルに合わせて変換する」という発想で工夫するようになった。\n\nこれ、今後一緒に作業するときの説明の仕方やタスクの渡し方の前提として覚えておいてほしいので、ナレッジに残しておいて。",
+      "expected_output": "scope: user の知見ファイルが ~/.claude/knowledge/ 配下(テスト時はKNOWLEDGE_USER_HOMEで指定した差し替え先)に作成される。typeはdecision/research想定。特定プロジェクトへの言及がなく、汎用的な協働方針として自己完結的に書かれている。",
+      "files": [],
+      "expectations": [
+        "ユーザーのホーム配下(本テストではfake_home)の.claude/knowledge/にMarkdownファイルが作成されている(実ホームには書かれていない)",
+        "frontmatterにscope: userが明記されている",
+        "本文が特定のプロジェクト/リポジトリ名に言及せず自己完結している",
+        "frontmatterの必須フィールドが揃っている",
+        "テンプレートのプレースホルダコメントが残っていない"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "nix-overlay-ordering-research-scope-check",
+      "prompt": "Nixのoverlayの仕組みについて少し調べたので、その結論を残しておいてください。\n\n知りたかったこと: nixpkgsのoverlayを複数重ねたとき、適用される順序とfinal/prevの優先度がどうなるか。\n\n調べて分かったこと: overlaysリストは `import nixpkgs { overlays = [ o1 o2 o3 ]; }` のように渡した順に `final: prev:` 形式で順次適用され、後ろのoverlay(o3)が前のoverlay(o1, o2)の適用結果を `prev` として受け取れる。`prev` を参照すると一個前まで適用された状態のpkgsが見える一方、`final` を参照すると全overlay適用後の最終形のpkgsが見える(再帰的な自己参照)。これにより、あるoverlayが `final.foo` を使って別のoverlayが定義したパッケージに依存できる。\n\nこれ、どこに残すのが適切か教えてください。",
+      "expected_output": "type: research。scopeはプロンプト中で明示されていないため、スキルがAskUserQuestion等でuser/projectのどちらかを確認してから保存する(このプロンプト内容は特定プロジェクトに紐づかない一般的なNix知識なので、最終的にはuser scopeが選ばれるのが適切)。結論(Findings)が詳細より先に書かれている。",
+      "files": [],
+      "expectations": [
+        "scopeの判断について、確認質問をした、または明示的にuser/projectどちらにすべきかの判断理由を述べている(無言で決めていない)",
+        "最終的にscope: user相当の場所に保存(または保存先として提案)されている",
+        "結論(Findings相当)が詳細な説明より先に書かれている",
+        "final/prevの技術的説明が正確(finalは全overlay適用後の不動点、prevはそのoverlayより前までの適用結果)",
+        "ファイルを実際に作成する場合、frontmatterの必須フィールドが揃っている"
+      ]
+    }
+  ]
+}
