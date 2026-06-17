@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   programs.git = {
     enable = true;
@@ -16,8 +15,6 @@
       push.autoSetupRemoto = true;
 
       ghq.root = "~/ghq";
-
-      url."git@github.com:".insteadOf = "https://github.com/";
     };
   };
 }
