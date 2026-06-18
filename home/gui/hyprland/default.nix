@@ -6,7 +6,7 @@
     ./noctalia.nix
     # ./fuzzel.nix
     # ./hyprlauncher.nix
-    ./rofi
+    # ./rofi
     # ./mako.nix
     # ./awww.nix
     # ./hyprlock.nix
@@ -105,11 +105,13 @@
 
       bind = [
         "$mod, Space, exec, noctalia-shell ipc call launcher toggle"
+        "$mod, M, exec, noctalia-shell ipc call settings toggle"
+        "$mod, Escape, exec, noctalia-shell ipc call lockScreen lock"
+        "$mod, S, exec, noctalia-shell ipc call sessionnMenu lockAndSuspend"
+        "$mod, V, exec, noctalia-shell ipc call launcher clipboard"
 
         "$mod, Return, exec, wezterm"
         "$mod, Q, killactive,"
-        "$mod, M, exit,"
-        "$mod, V, togglefloating,"
         "$mod, F, fullscreen,"
         "$mod, D, exec, rofi-hub"
 
@@ -140,9 +142,6 @@
         # special workspace（最小化の代替）
         "$mod, Tab, togglespecialworkspace, magic"
         "$mod SHIFT, Tab, movetoworkspacesilent, special:magic"
-
-        # ロック
-        "$mod, Escape, exec, hyprlock"
 
         # ウィンドウ移動
         "$mod CTRL, H, movewindow, l"
