@@ -69,16 +69,23 @@
 
       # 装飾
       decoration = {
-        rounding = 10;
-        blur = {
-          enabled = true;
-          size = 3;
-          passes = 1;
-        };
+        rounding = 20;
+        rounding_power = 2;
+
         shadow = {
           enabled = true;
           range = 4;
-          render_power = 3;
+          render_power = 4;
+          color = "0xee1a1a1a";
+        };
+
+        blur = {
+          enabled = false;
+          size = 3;
+          passes = 2;
+          new_optimizations = true;
+          xray = true;
+          popups = true;
         };
       };
 
@@ -100,15 +107,25 @@
         preserve_split = true;
       };
 
+      # noctalia layerrule
+      layerrule = {
+        name = "noctalia";
+        match.namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd)\$";
+        blur = true;
+        blur_popups = true;
+        ignore_alpha = 0.5;
+        xray = true;
+      };
+
       # キーバインド
       "$mod" = "SUPER";
 
       bind = [
-        "$mod, Space, exec, noctalia-shell ipc call launcher toggle"
-        "$mod, M, exec, noctalia-shell ipc call settings toggle"
-        "$mod, Escape, exec, noctalia-shell ipc call lockScreen lock"
-        "$mod, S, exec, noctalia-shell ipc call sessionnMenu lockAndSuspend"
-        "$mod, V, exec, noctalia-shell ipc call launcher clipboard"
+        "$mod, Space, exec, noctalia msg panel-toggle launcher"
+        "$mod, S, exec, noctalia msg panel-toggle control-center"
+        "$mod, comma, exec, noctalia msg settings-toggle"
+        "$mod, V, exec, noctalia msg panel-toggle clipboard"
+        "$mod, Escape, exec, noctalia msg session lock"
 
         "$mod, Return, exec, wezterm"
         "$mod, Q, killactive,"
@@ -169,7 +186,7 @@
         "fcitx5 -d"
         # "wqyber"
         # "ashell"
-        "noctalia-shell"
+        "noctalia"
         # "$HOME/.config/hypr/scripts/awww-init.sh"
         # "hypridle"
         "nm-applet --indicator"

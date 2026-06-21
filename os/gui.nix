@@ -54,6 +54,11 @@
 
   # プログラム (GUI固有)
   programs.hyprland.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "*";
+  };
 
   # remove "hyprland(uwsm-managed)" from gdm session list.
   services.displayManager.sessionPackages = lib.mkForce [
