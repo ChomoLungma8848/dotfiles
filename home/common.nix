@@ -5,6 +5,7 @@
     ./programs/nixvim/nixvim.nix
     ./programs/git.nix
     ./programs/starship.nix
+    ./programs/emacs
   ];
 
   home = rec {
@@ -24,6 +25,8 @@
       jq
       nixfmt
       inputs.graftx.packages.${pkgs.system}.default
+      tealdeer
+      btop
     ];
     sessionPath = [ "$HOME/go/bin" ];
     sessionVariables = {
