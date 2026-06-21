@@ -15,6 +15,7 @@
         ./plugin/snacks.nix
         ./plugin/noice.nix
         ./plugin/blink_cmp.nix
+        ./plugin/live-share.nix
       ];
 
     };
