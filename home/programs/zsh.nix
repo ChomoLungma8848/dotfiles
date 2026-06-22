@@ -28,7 +28,7 @@
       ll = "eza --icons always --long --all --git";
       tree = "eza --icons always --classify always --tree";
       lg = "lazygit";
-      claude-personal = "CLAUDE_CONFIG_DIR=~/.claude-personal claude";
+      claude-work = "CLAUDE_CONFIG_DIR=~/.claude-work claude";
     };
   };
 }
