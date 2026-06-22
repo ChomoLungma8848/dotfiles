@@ -29,6 +29,10 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -134,6 +138,7 @@
             (
               { pkgs, ... }:
               {
+                home.packages = [ inputs.zen-browser.packages.${pkgs.system}.default ];
                 programs.claude-code = {
                   enable = true;
                   package = pkgs.claude-code;
