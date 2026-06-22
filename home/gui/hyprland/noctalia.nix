@@ -31,7 +31,7 @@
           
           start = [
             "launcher"
-            "spacer_1"
+            "spacer"
             "group:g1"
             "audio_visualizer"
           ];
@@ -51,7 +51,7 @@
             "session"
           ];
 
-          capsule_group = {
+          capsule_group = [{
             id = "g1";
             border = "";
             fill = "#000000";
@@ -65,7 +65,7 @@
             ];
             opacity = 0.0;
             padding = 0.0;
-          };
+          }];
         };
       };
 
@@ -90,7 +90,7 @@
         };
       };
 
-        widget = {};
+      widget = {};
       };
 
       dock = {
@@ -139,7 +139,7 @@
       };
 
       lockscreen = {
-        blur_intensity = 0.0;
+        blur_intensity = 0.1;
         fingerprint = false;
         wallpaper = "/home/chomo/Wallpaper/wallpaper-1.png";
       };
@@ -147,11 +147,11 @@
       lockscreen_widgets = {
         enabled = true;
         schema_version = 2;
-        widget_order = [
-          "lockscreen-login-box@HDMI-A-1"
-          "lockscreen-widget-0000000000000001"
-          "lockscreen-widget-0000000000000002"
-        ];
+        # widget_order = [
+        #   "lockscreen-login-box@HDMI-A-1"
+        #   "lockscreen-widget-0000000000000001"
+        #   "lockscreen-widget-0000000000000002"
+        # ];
 
         grid = {
           cell_size = 8;
@@ -159,64 +159,64 @@
           visible = true;
         };
 
-        widget = {
-          "lockscreen-login-box@HDMI-A-1" = {
-            box_height = 70.0;
-            box_width = 400.0;
-            cx = 960.0;
-            cy = 961.0;
-            output = "HDMI-A-1";
-            rotation = 0.0;
-            type = "login_box";
-            settings = {
-              background_color = "surface_variant";
-              background_opacity = 0.88;
-              background_radius = 12.0;
-              input_opacity = 1.0;
-              input_radius = 6.0;
-              show_login_button = true;
-            };
-          };
-
-          lockscreen-widget-0000000000000001 = {
-            box_height = 88.0;
-            box_width = 200.0;
-            cx = 1468.0;
-            cy = 364.0;
-            output = "HDMI-A-1";
-            rotation = 0.0;
-            type = "clock";
-            settings = {
-              background = false;
-              background_color = "on_primary";
-              background_opacity = 0.7;
-              background_padding = 15.0;
-              background_radius = 32.0;
-              center_text = true;
-              clock_style = "digital";
-              color = "#719AC6";
-              font_family = "JetBrainsMono Nerd Font";
-              format = "{:%H:%M}";
-              shadow = false;
-            };
-          };
-
-          lockscreen-widget-0000000000000002 = {
-            box_height = 264.0;
-            box_width = 432.0;
-            cx = 472.0;
-            cy = 344.0;
-            output = "HDMI-A-1";
-            rotation = 0.0;
-            type = "weather";
-            settings = {
-              background_opacity = 0.65;
-              background_radius = 32.0;
-              color = "primary";
-              show_forecast = true;
-            };
-          };
-        };
+        # widget = {
+        #   "lockscreen-login-box@HDMI-A-1" = {
+        #     box_height = 70.0;
+        #     box_width = 400.0;
+        #     cx = 960.0;
+        #     cy = 961.0;
+        #     output = "HDMI-A-1";
+        #     rotation = 0.0;
+        #     type = "login_box";
+        #     settings = {
+        #       background_color = "surface_variant";
+        #       background_opacity = 0.88;
+        #       background_radius = 12.0;
+        #       input_opacity = 1.0;
+        #       input_radius = 6.0;
+        #       show_login_button = true;
+        #     };
+        #   };
+        #
+        #   lockscreen-widget-0000000000000001 = {
+        #     box_height = 88.0;
+        #     box_width = 200.0;
+        #     cx = 1468.0;
+        #     cy = 364.0;
+        #     output = "HDMI-A-1";
+        #     rotation = 0.0;
+        #     type = "clock";
+        #     settings = {
+        #       background = false;
+        #       background_color = "on_primary";
+        #       background_opacity = 0.7;
+        #       background_padding = 15.0;
+        #       background_radius = 32.0;
+        #       center_text = true;
+        #       clock_style = "digital";
+        #       color = "#719AC6";
+        #       font_family = "JetBrainsMono Nerd Font";
+        #       format = "{:%H:%M}";
+        #       shadow = false;
+        #     };
+        #   };
+        #
+        #   lockscreen-widget-0000000000000002 = {
+        #     box_height = 264.0;
+        #     box_width = 432.0;
+        #     cx = 472.0;
+        #     cy = 344.0;
+        #     output = "HDMI-A-1";
+        #     rotation = 0.0;
+        #     type = "weather";
+        #     settings = {
+        #       background_opacity = 0.65;
+        #       background_radius = 32.0;
+        #       color = "primary";
+        #       show_forecast = true;
+        #     };
+        #   };
+        # };
       };
 
       notification = {
@@ -256,7 +256,7 @@
         transition_duration = 1500;
         transition_on_startup = true;
         
-        default.path = "/home/chomo/Wallpapers/wallpaper-1.png";
+        default.path = "/home/chomo/Wallpaper/wallpaper-1.png";
 
         automation = {
           enabled = true;
