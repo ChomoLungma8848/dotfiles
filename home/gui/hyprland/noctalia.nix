@@ -253,14 +253,15 @@
         enabled = true;
         fill_mode = "crop";
         transition = ["fade" "wipe" "disc" "stripes" "zoom" "honeycomb"];
-        transition_duration = 1500;
+        transition_duration = 3000;
         transition_on_startup = true;
         
+        directory = "/home/chomo/Wallpaper";
         default.path = "/home/chomo/Wallpaper/wallpaper-1.png";
 
         automation = {
           enabled = true;
-          interval_seconds = 1800;
+          interval_seconds = 900;
           order = "random";
           recursive = "true";
         };
