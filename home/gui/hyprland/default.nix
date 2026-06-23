@@ -57,13 +57,15 @@
         };
       };
 
+      # noctaliaが生成するカラースキーマを読み込む
+      # （general の col.active_border / col.inactive_border 等を上書き）
+      source = "~/.config/hypr/noctalia.conf";
+
       # 一般設定
       general = {
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
         layout = "dwindle";
       };
 
