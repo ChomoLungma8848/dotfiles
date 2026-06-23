@@ -16,6 +16,7 @@
         ./plugin/noice.nix
         ./plugin/blink_cmp.nix
         ./plugin/live-share.nix
+        ./plugin/mini.nix
       ];
 
     };
