@@ -1,0 +1,65 @@
+{
+    "cmp-skkeleton": {
+        "cargoLock": null,
+        "date": "2023-11-26",
+        "extract": null,
+        "name": "cmp-skkeleton",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "uga-rosa",
+            "repo": "cmp-skkeleton",
+            "rev": "2c268a407e9e843abd03c6fa77485541a4ddcd9a",
+            "sha256": "sha256-Odg0cmLML2L4YVcrMt7Lrie1BAl7aNEq6xqJN3/JhZs=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "2c268a407e9e843abd03c6fa77485541a4ddcd9a"
+    },
+    "nskk": {
+        "cargoLock": null,
+        "date": "2026-05-16",
+        "extract": null,
+        "name": "nskk",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "takeokunn",
+            "repo": "nskk.el",
+            "rev": "e429c83b4c75042444c6d30d3fee79be6877febe",
+            "sha256": "sha256-sc64yUTmAjT6t4pSzYv5bDTPDi8nyzrzr83Qtgk1jl4=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "e429c83b4c75042444c6d30d3fee79be6877febe"
+    },
+    "skkeleton": {
+        "cargoLock": null,
+        "date": "2026-05-05",
+        "extract": null,
+        "name": "skkeleton",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "vim-skk",
+            "repo": "skkeleton",
+            "rev": "770b265dd115dba96ea5314642e35764654ef08f",
+            "sha256": "sha256-Gsl/LqUY8szRqYLnDVyDOIDCw+cisoKsS5Fl1zQ+unM=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "770b265dd115dba96ea5314642e35764654ef08f"
+    }
+}

@@ -20,7 +20,7 @@
 (leaf leaf-convert)
 
 ;; color scheme
-(leaf doom-thems
+(leaf doom-themes
   :config
   (load-theme 'doom-dracula t))
 
@@ -38,10 +38,29 @@
 	   (completion-category-defaults . nil)
 	   (completion-category-overrides . '((file (styles partial-completion))))))
 
+;; skk
+(leaf nskk
+  :custom
+  (nskk-dict-system-dictionary-files . "~/.nix-profile/share/skk/SKK-JISYO.L")
+  :config
+  (nskk-global-mode 1))
+
+;; which-key
+(leaf which-key
+  :global-minor-mode t)
+
 ;; org-mode
 (leaf org
   :custom
-  (org-directory . "~/org"))
+  (org-directory . "~/org")
+  (org-agenda-files . '("~/org"))
+  (org-refile-targets . '((org-agenda-files :maxlevel . 1)))
+  (org-columns-default-format . "%68ITEM(Task) %6Effort(Effort){:} %6CLOCKSUM(Clock){:}")
+  (org-startup-indented . t)
+  (org-log-done . time)
+  :bind (("C-c t i" . org-clock-in)
+         ("C-c t o" . org-clock-out)
+	 ("C-c t s" . org-set-effort)))
 
 ;; ナレッジ管理
 (leaf org-roam
@@ -55,7 +74,17 @@
 
 ;; タスク管理
 (leaf org-agenda
-  :custom
-  (org-agenda-files . `(,org-directory))
-  (org-agenda-window-setup . current-window)
+  :require t
+  :setq ((org-agenda-custom-commands quote
+				     (("x" "Unscheduled Tasks" tags-todo "-SCHEDULED>=\"<today>\"-DEADLINE>=\"<today>\"" nil))))
   :bind (("C-c a" . org-agenda)))
+
+(leaf org-capture
+  :custom
+  (org-capture-templates . '(("t" "Todo Entroy to Inbox" entry (file+headline "~/org/0_inbox.org" "Inbox")
+			      "** TODO %?\n")))
+  :bind (("C-c c" . org-capture)))
+
+;; タイム管理
+(leaf org-pomodoro
+  :bind (("C-c p" . org-pomodoro))) 
