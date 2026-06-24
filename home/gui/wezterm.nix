@@ -41,7 +41,7 @@ in
         }
         # ペインを閉じる
         {
-          key = "x";
+          key = "q";
           mods = "ALT";
           action = mkLuaInline "wezterm.action.CloseCurrentPane { confirm = true }";
         }
