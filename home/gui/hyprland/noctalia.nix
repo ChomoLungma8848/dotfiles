@@ -141,7 +141,7 @@
       lockscreen = {
         blur_intensity = 0.1;
         fingerprint = false;
-        wallpaper = "/home/chomo/Wallpaper/wallpaper-1.png";
+        wallpaper = "";
       };
 
       lockscreen_widgets = {
