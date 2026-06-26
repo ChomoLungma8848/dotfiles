@@ -12,6 +12,13 @@ in
     # （settings のテーブル形式 `["color_scheme"]` では noctalia の正規表現にマッチしない）
     extraConfig = ''
       config.color_scheme = "Noctalia"
+
+      local noctalia_scheme = wezterm.home_dir .. "/.config/wezterm/colors/Noctalia.toml"
+      wezterm.add_to_config_reload_watch_list(noctalia_scheme)
+      local ok, noctalia_colors = pcall(wezterm.color.load_scheme, noctalia_scheme)
+      if ok and noctalia_colors then
+        config.colors = noctalia_colors
+      end
     '';
 
     settings = {
