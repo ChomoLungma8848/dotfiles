@@ -16,7 +16,10 @@
         };
         sections = [
           { section = "header"; }
-          { section = "keys"; gap = 1; }
+          {
+            section = "keys";
+            gap = 1;
+          }
         ];
       };
       notifier = {

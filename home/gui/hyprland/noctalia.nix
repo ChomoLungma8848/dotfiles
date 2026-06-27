@@ -19,7 +19,7 @@
           border = "primary";
           border_width = 1.5;
           color = "primary";
-          
+
           capsule_border = "primary";
           capsule_fill = "surface";
           capsule_opacity = 0.8;
@@ -28,23 +28,25 @@
 
           margin_ends = 10;
           radius = 80;
-          widget_spacing =10;
+          widget_spacing = 10;
 
-          capsule_group = [{
-            id = "g1";
-            border = "";
-            fill = "#000000";
-            members = [
-              "cpu"
-              "ram"
-              "temp"
-              "network_rx"
-              "network_tx"
-            ];
-            opacity = 0.0;
-            padding = 0.0;
-          }];
-          
+          capsule_group = [
+            {
+              id = "g1";
+              border = "";
+              fill = "#000000";
+              members = [
+                "cpu"
+                "ram"
+                "temp"
+                "network_rx"
+                "network_tx"
+              ];
+              opacity = 0.0;
+              padding = 0.0;
+            }
+          ];
+
           start = [
             "launcher"
             "spacer"
@@ -81,16 +83,16 @@
 
       desktop_widgets = {
         schema_version = 2;
-        widget_order = [];
+        widget_order = [ ];
         desktop_widgets = {
-        grid = {
-          cell_size = 16;
-          major_interval = 4;
-          visible = true;
+          grid = {
+            cell_size = 16;
+            major_interval = 4;
+            visible = true;
+          };
         };
-      };
 
-      widget = {};
+        widget = { };
       };
 
       dock = {
@@ -224,7 +226,7 @@
       };
 
       plugins = {
-        enabled = [];
+        enabled = [ ];
       };
 
       shell = {
@@ -263,10 +265,17 @@
       wallpaper = {
         enabled = true;
         fill_mode = "crop";
-        transition = ["fade" "wipe" "disc" "stripes" "zoom" "honeycomb"];
+        transition = [
+          "fade"
+          "wipe"
+          "disc"
+          "stripes"
+          "zoom"
+          "honeycomb"
+        ];
         transition_duration = 3000;
         transition_on_startup = true;
-        
+
         directory = "/home/chomo/Wallpaper";
         default.path = "/home/chomo/Wallpaper/wallpaper-1.png";
 

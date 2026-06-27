@@ -5,9 +5,18 @@
       keymap = {
         preset = "enter";
 
-        "<Tab>" = [ "show" "fallback" ];
-        "<C-j>" = [ "snippet_forward" "fallback" ];
-        "<C-k>" = [ "snippet_backward" "fallback" ];
+        "<Tab>" = [
+          "show"
+          "fallback"
+        ];
+        "<C-j>" = [
+          "snippet_forward"
+          "fallback"
+        ];
+        "<C-k>" = [
+          "snippet_backward"
+          "fallback"
+        ];
       };
       completion = {
         menu = {
@@ -26,7 +35,12 @@
         enabled = true;
       };
       sources = {
-        default = [ "lsp" "path" "snippets" "buffer" ];
+        default = [
+          "lsp"
+          "path"
+          "snippets"
+          "buffer"
+        ];
       };
     };
   };

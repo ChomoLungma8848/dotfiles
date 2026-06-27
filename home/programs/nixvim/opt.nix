@@ -16,7 +16,10 @@
 
     clipboard = {
       providers.wl-copy.enable = true;
-      register = [ "unnamedplus" "unnamed" ];
+      register = [
+        "unnamedplus"
+        "unnamed"
+      ];
     };
   };
 }

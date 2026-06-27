@@ -34,7 +34,10 @@
       arRPC = true;
 
       # --- spell check ---
-      spellCheckLanguages = [ "en-US" "ja" ];
+      spellCheckLanguages = [
+        "en-US"
+        "ja"
+      ];
 
       # --- splash ---
       enableSplashScreen = false;
