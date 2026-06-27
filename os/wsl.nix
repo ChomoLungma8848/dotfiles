@@ -4,12 +4,10 @@
     ./common.nix
   ];
 
-  services.vscode-server.enable = true;
-
   wsl.enable = true;
-  wsl.defaultUser = "nixos";
+  wsl.defaultUser = "chomo";
 
-  users.users.nixos = {
+  users.users.chomo = {
     shell = pkgs.zsh;
   };
 }
