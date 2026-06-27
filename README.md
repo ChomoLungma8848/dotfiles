@@ -55,9 +55,24 @@ nix --extra-experimental-features "nix-command flakes" \
 reboot
 ```
 
-### 6. 初回ログイン後にパスワードを変更
+### 6. 初回ログイン
 
 ユーザー: `chomo` / 初期パスワード: `admin`
+
+ログイン直後の Hyprland は設定が未適用のため、`SUPER + Q` で kitty を起動する。
+
+### 7. ユーザー環境（dotfiles）の適用
+
+```bash
+nix run github:nix-community/home-manager -- \
+  switch --flake github:ChomoLungma8848/dotfiles#home
+```
+
+> `~/.config/hypr/hyprland.conf` が衝突する場合は `rm` してから再実行。
+
+適用後に再ログインすると Hyprland に設定が反映される。
+
+### 8. パスワードを変更
 
 ```bash
 passwd
@@ -99,7 +114,7 @@ nix flake update
 
 | プロファイル | 用途 | 備考 |
 |---|---|---|
-| `#install` | 新規マシンへのインストール | pure 評価・`--impure` 不要 |
+| `#install` | 新規マシンへのシステムインストール | システムのみ。home は `#home` で別途適用 |
 | `#nixos` | 既存 GUI 環境のシステム再ビルド | `--impure` 必要 |
 | `#wsl` | WSL 環境のシステム再ビルド | |
 | `homeConfigurations.home` | GUI 環境の Home Manager | `home-manager switch --flake .#home` |
