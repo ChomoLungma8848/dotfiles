@@ -54,6 +54,7 @@
 
   # プログラム (GUI固有)
   programs.hyprland.enable = true;
+  environment.systemPackages = [ pkgs.kitty ];
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
