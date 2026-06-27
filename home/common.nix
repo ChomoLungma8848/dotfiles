@@ -1,6 +1,12 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
 {
   imports = [
+    inputs.nixvim.homeModules.nixvim
     ./programs/zsh.nix
     ./programs/nixvim/nixvim.nix
     ./programs/git.nix
@@ -20,11 +26,11 @@
       ghq
       lazygit
       fzf
-      codex
+      claude-code
       go
       jq
       nixfmt
-      inputs.graftx.packages.${pkgs.system}.default
+      inputs.graftx.packages.${system}.default
       tealdeer
       btop
     ];
@@ -33,6 +39,8 @@
       CLAUDE_CODE_NEW_INIT = 1;
     };
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   programs.home-manager.enable = true;
 }
