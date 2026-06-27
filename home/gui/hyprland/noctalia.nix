@@ -15,9 +15,10 @@
 
       bar = {
         default = {
-          background_opacity = 0.75;
+          background_opacity = 0.6;
           border = "primary";
           border_width = 1.5;
+          color = "primary";
           
           capsule_border = "primary";
           capsule_fill = "surface";
@@ -28,6 +29,21 @@
           margin_ends = 10;
           radius = 80;
           widget_spacing =10;
+
+          capsule_group = [{
+            id = "g1";
+            border = "";
+            fill = "#000000";
+            members = [
+              "cpu"
+              "ram"
+              "temp"
+              "network_rx"
+              "network_tx"
+            ];
+            opacity = 0.0;
+            padding = 0.0;
+          }];
           
           start = [
             "launcher"
@@ -50,22 +66,6 @@
             "weather"
             "session"
           ];
-
-          capsule_group = [{
-            id = "g1";
-            border = "";
-            fill = "#000000";
-            foreground = "primary";
-            members = [
-              "cpu"
-              "ram"
-              "temp"
-              "network_rx"
-              "network_tx"
-            ];
-            opacity = 0.0;
-            padding = 0.0;
-          }];
         };
       };
 
@@ -255,6 +255,7 @@
           ];
           community_ids = [
             "zen_browser"
+            "discord"
           ];
         };
       };
@@ -300,6 +301,7 @@
 
         clock = {
           anchor = true;
+          format = "{:%m/%d %H:%M}";
         };
 
         cpu = {
@@ -347,6 +349,11 @@
 
         spacer_1 = {
           type = "spacer";
+        };
+
+        taskbar = {
+          group_by_workspace = true;
+          scale = 1.2;
         };
 
         temp = {
