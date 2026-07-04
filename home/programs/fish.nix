@@ -4,7 +4,7 @@
     enable = true;
 
     interactiveShellInit = ''
-      fish_vi_key_bindings intert
+      fish_vi_key_bindings insert
 
       set -g fish_cursor_insert line
       set -g fish_cursor_default block
@@ -24,13 +24,13 @@
 
       "\\cp" = {
         mode = "insert";
-        command = "up-line";
+        command = "up-or-search";
         operate = "user";
       };
 
       "\\cn" = {
         mode = "insert";
-        command = "down-line";
+        command = "down-or-search";
         operate = "user";
       };
 
@@ -44,8 +44,8 @@
 
     functions = {
       ghq-fzf = ''
-        set -l repos=$(ghq list | fzf --cycle --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
-        if [ -n "$repos" ]; then
+        set -l repo $(ghq list | fzf --cycle --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
+        if test -n "$repo"
           cd (ghq root)/$repo
         end
       '';
@@ -69,14 +69,14 @@
         name = "autopair";
         src = pkgs.fishPlugins.autopair.src;
       }
-      {
-        name = "fzf-fish";
-        src = pkgs.fishPlugins.fzf-fish.src;
-      }
-      {
-        name = "hydro";
-        src = pkgs.fishPlugins.hydro.src;
-      }
+      # {
+      #   name = "fzf-fish";
+      #   src = pkgs.fishPlugins.fzf-fish.src;
+      # }
+      # {
+      #   name = "hydro";
+      #   src = pkgs.fishPlugins.hydro.src;
+      # }
     ];
   };
 }
