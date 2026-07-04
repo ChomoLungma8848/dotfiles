@@ -13,6 +13,7 @@
     ./programs/git.nix
     ./programs/starship.nix
     ./programs/emacs
+    ./programs/zoxide.nix
   ];
 
   home = rec {
@@ -28,7 +29,6 @@
       lazygit
       fzf
       fd
-      zoxide
       claude-code
       go
       jq
