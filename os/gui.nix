@@ -60,6 +60,7 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     config.common.default = "*";
   };
+  systemd.user.units."xdg-document-portal.service".enable = false;
 
   # remove "hyprland(uwsm-managed)" from gdm session list.
   services.displayManager.sessionPackages = lib.mkForce [

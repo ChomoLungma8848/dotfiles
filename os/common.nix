@@ -19,6 +19,14 @@
   # プログラム
   programs.zsh.enable = true;
 
+  # Docker (デーモンは OS 固有のため os/ 側で有効化。CLI ツールは home/ 側)
+  virtualisation.docker = {
+    enable = true;
+    autoPrune.enable = true;
+  };
+  # chomo ユーザーを docker グループへ (sudo なしで docker 実行可能に)
+  users.users.chomo.extraGroups = [ "docker" ];
+
   # Nix設定
   nix = {
     settings = {
