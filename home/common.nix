@@ -8,6 +8,7 @@
   imports = [
     inputs.nixvim.homeModules.nixvim
     ./programs/zsh.nix
+    ./programs/fish.nix
     ./programs/nixvim/nixvim.nix
     ./programs/git.nix
     ./programs/starship.nix
@@ -26,6 +27,8 @@
       ghq
       lazygit
       fzf
+      fd
+      zoxide
       claude-code
       go
       jq
@@ -33,6 +36,8 @@
       inputs.graftx.packages.${system}.default
       tealdeer
       btop
+      docker-compose
+      lazydocker
     ];
     sessionPath = [ "$HOME/go/bin" ];
     sessionVariables = {
