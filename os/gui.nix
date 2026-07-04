@@ -49,7 +49,7 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   # プログラム (GUI固有)

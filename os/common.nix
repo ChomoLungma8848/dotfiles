@@ -17,7 +17,7 @@
   };
 
   # プログラム
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   # Docker (デーモンは OS 固有のため os/ 側で有効化。CLI ツールは home/ 側)
   virtualisation.docker = {
