@@ -15,6 +15,7 @@
     ./programs/emacs
     ./programs/zoxide.nix
     ./programs/direnv.nix
+    ./programs/auto-commit.nix
   ];
 
   home = rec {
