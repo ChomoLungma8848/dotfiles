@@ -14,6 +14,7 @@ allowed-tools:
   - Bash(git reset HEAD:*)
   - Bash(git rev-parse:*)
   - Bash(git branch --show-current)
+  - Read(./*)
 ---
 
 ## 概要
