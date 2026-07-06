@@ -27,13 +27,12 @@
       bat
       eza
       ripgrep
+      fd
       gh
       ghq
       lazygit
       fzf
-      fd
       claude-code
-      go
       jq
       nixfmt
       inputs.graftx.packages.${system}.default
@@ -42,10 +41,6 @@
       docker-compose
       lazydocker
     ];
-    sessionPath = [ "$HOME/go/bin" ];
-    sessionVariables = {
-      CLAUDE_CODE_NEW_INIT = 1;
-    };
   };
 
   nixpkgs.config.allowUnfree = true;
