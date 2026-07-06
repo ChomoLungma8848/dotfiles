@@ -62,6 +62,7 @@
       lg = "lazygit";
       cw = "CLAUDE_CONFIG_DIR=~/.claude-work claude";
       emacs = "emacs --no-window-system";
+      cmt = ''claude --model sonnet --effort high "/commit auto"'';
     };
 
     plugins = [
