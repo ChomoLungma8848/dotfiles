@@ -16,6 +16,7 @@
     ./programs/zoxide.nix
     ./programs/direnv.nix
     ./programs/auto-commit.nix
+    ./programs/claude
   ];
 
   home = rec {
