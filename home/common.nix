@@ -14,6 +14,7 @@
     ./programs/starship.nix
     ./programs/emacs
     ./programs/zoxide.nix
+    ./programs/direnv.nix
   ];
 
   home = rec {
