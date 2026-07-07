@@ -40,6 +40,7 @@
       btop
       docker-compose
       lazydocker
+      python3
     ];
   };
 
