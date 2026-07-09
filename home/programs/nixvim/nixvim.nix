@@ -4,6 +4,11 @@
       enable = true;
       viAlias = true;
 
+      clipboard = {
+        providers.wl-copy.enable = true;
+        register = "unnamedplus";
+      };
+
       imports = [
         ./global.nix
         ./opt.nix
