@@ -5,7 +5,6 @@ let
 in
 {
   home.activation.linkClaudeSettings = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    run ln -sfn "${claudeDir}/settings.json" "$HOME/.claude/settings.json"
     run ln -sfn "${claudeDir}/skills" "$HOME/.claude/skills"
   '';
 }
