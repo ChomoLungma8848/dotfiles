@@ -54,8 +54,9 @@
     preferAbbrs = true;
 
     shellAbbrs = {
+      cd = "z";
       ls = "eza --icons always --classify always";
-      ll = "eza --icons always --group-directories-first --total-size --git -la";
+      ll = "eza --icons always --group-directories-first --git -la";
       lt = "eza --icons always --classify always -T";
       cat = "bat";
       grep = "rg";
