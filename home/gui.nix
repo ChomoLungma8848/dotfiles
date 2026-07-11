@@ -9,6 +9,7 @@
     inputs.noctalia.homeModules.default
     ./common.nix
     ./gui/hyprland
+    # ./gui/niri
     ./gui/wezterm.nix
     ./gui/vesktop.nix
   ];

@@ -70,6 +70,9 @@
     '')
   ];
 
+  programs.niri.enable = true;
+  
+
   # 日本語入力 (fcitx5-mozc)
   i18n.inputMethod = {
     type = "fcitx5";
