@@ -3,18 +3,18 @@
     enable = true;
     settings = {
       keymap = {
-        preset = "enter";
+        preset = "default";
 
-        "<Tab>" = [
-          "show"
-          "fallback"
-        ];
         "<C-j>" = [
           "snippet_forward"
           "fallback"
         ];
         "<C-k>" = [
           "snippet_backward"
+          "fallback"
+        ];
+        "<C-l>" = [
+          "accept"
           "fallback"
         ];
       };
