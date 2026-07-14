@@ -316,6 +316,21 @@
         "type": "github"
       }
     },
+    "org-babel": {
+      "locked": {
+        "lastModified": 1781216126,
+        "narHash": "sha256-f1OICjF3pdRb89ackr20ulKJeTfGnQKXns2mgxOxE00=",
+        "owner": "emacs-twist",
+        "repo": "org-babel",
+        "rev": "e39a14ee977472e15c1c3019b7e00c0da9ecbaa2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "emacs-twist",
+        "repo": "org-babel",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
@@ -326,6 +341,7 @@
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
         "noctalia": "noctalia",
+        "org-babel": "org-babel",
         "treefmt-nix": "treefmt-nix",
         "zen-browser": "zen-browser"
       }

@@ -28,6 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     graftx.url = "github:myuron/graftx";
+    org-babel.url = "github:emacs-twist/org-babel";
   };
 
   outputs =
@@ -38,6 +39,7 @@
       disko,
       home-manager,
       nixos-wsl,
+      org-babel,
       ...
     }@inputs:
     let
