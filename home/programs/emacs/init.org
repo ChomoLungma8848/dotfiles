@@ -1,0 +1,53 @@
+*** メニューバー、ツールバー、スクロールバーを非表示にする
+
+#+begin_src emacs-lisp :tangle yes
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+#+end_src
+
+*** modus-themes
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package modus-themes
+    :config
+    (load-theme 'modus-vivendi-tinted :no-confirm-loading))
+#+end_src
+
+*** vertico
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package vertico
+    :hook
+    (after-init . vertico-mode))
+
+  (use-package vertico-posframe
+    :hook
+    (after-init . vertico-posframe-mode))
+#+end_src
+
+*** marginalia
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package marginalia
+    :hook
+    (after-init . marginalia-mode))
+#+end_src
+
+*** orderless
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package orderless
+    :config
+    (setq completion-styles '(orderless basic))
+    (setq completion-category-defaults nil)
+    (setq completion-category-overrides nil))
+#+end_src
+
+*** evil-mode
+
+#+begin_src emacs-lisp :tangle yes
+  (use-package evil
+    :init
+    (evil-mode 1))
+#+end_src
