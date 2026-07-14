@@ -18,6 +18,7 @@
     packages = with pkgs; [
       google-chrome
       inputs.zen-browser.packages.${system}.default
+      libreoffice
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
