@@ -13,7 +13,7 @@
           "snippet_backward"
           "fallback"
         ];
-        "<C-l>" = [
+        "<Tab>" = [
           "accept"
           "fallback"
         ];
