@@ -109,6 +109,14 @@
         preserve_split = true;
       };
 
+      # Godotで実行したゲームをフローティングにする
+      # (classはproject.godotのconfig/name。エディタ本体はclassが異なるため対象外)
+      windowrule = {
+        name = "gear-game-float";
+        match.class = "^gear-game$";
+        float = true;
+      };
+
       # noctalia layerrule
       layerrule = {
         name = "noctalia";
