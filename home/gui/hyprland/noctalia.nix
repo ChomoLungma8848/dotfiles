@@ -15,7 +15,7 @@
 
       bar = {
         default = {
-          background_opacity = 0.6;
+          background_opacity = 0.7;
           border = "primary";
           border_width = 1.5;
           color = "primary";
