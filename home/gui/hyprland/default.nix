@@ -111,10 +111,20 @@
 
       # Godotで実行したゲームをフローティングにする
       # (classはproject.godotのconfig/name。エディタ本体はclassが異なるため対象外)
+      #
+      # サイズは Hyprland 側で持つ(9:19.6 でバーを除く縦いっぱい)。
+      # Godot(XWayland)クライアント側のリサイズは Hyprland の管理サイズに
+      # 反映されず、初回のウィンドウ移動で初期サイズへ巻き戻されるため、
+      # ジオメトリの権威はこの windowrule に置く。ゲーム側(boot.gd)は
+      # HYPRLAND_INSTANCE_SIGNATURE 検出時にリサイズをスキップする。
+      # 導出: eDP-1 1920x1080、noctalia バー(上34px)を除く高さ 1046、
+      #       幅 = round(1046 * 9 / 19.6) = 480
       windowrule = {
         name = "gear-game-float";
         match.class = "^gear-game$";
         float = true;
+        size = "480 1046";
+        center = 1; # 1 = 予約領域(バー)を避けて中央配置
       };
 
       # noctalia layerrule
