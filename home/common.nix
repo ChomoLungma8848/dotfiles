@@ -33,6 +33,7 @@
       lazygit
       fzf
       claude-code
+      codex
       jq
       nixfmt
       inputs.graftx.packages.${system}.default
