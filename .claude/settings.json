@@ -1,4 +1,5 @@
 {
+  "model": "opus",
   "hooks": {
     "PostToolUse": [
       {
@@ -6,8 +7,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '.tool_input.file_path // empty' | { read -r f; [[ \"$f\" == *.nix ]] && nixfmt \"$f\"; } 2>/dev/null || true; echo '{\"systemMessage\":\"nix fmt hook fired\"}'",
-            "timeout": 30
+            "command": "nix fmt",
+            "timeout": 60
           }
         ]
       }
