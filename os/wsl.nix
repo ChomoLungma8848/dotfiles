@@ -8,6 +8,6 @@
   wsl.defaultUser = "chomo";
 
   users.users.chomo = {
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 }

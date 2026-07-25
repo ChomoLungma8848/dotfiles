@@ -1,16 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    # ./waybar.nix
-    # ./ashell.nix
     ./noctalia.nix
-    # ./fuzzel.nix
-    # ./hyprlauncher.nix
-    # ./rofi
-    # ./mako.nix
-    # ./awww.nix
-    # ./hyprlock.nix
-    # ./hypridle.nix
   ];
 
   # スクリーンショット用ツール
@@ -150,7 +141,6 @@
         "$mod, Return, exec, wezterm"
         "$mod, Q, killactive,"
         "$mod, F, fullscreen,"
-        "$mod, D, exec, rofi-hub"
 
         # フォーカス移動
         "$mod, H, movefocus, l"
@@ -204,11 +194,7 @@
       # 自動起動
       exec-once = [
         "fcitx5 -d"
-        # "wqyber"
-        # "ashell"
         "noctalia"
-        # "$HOME/.config/hypr/scripts/awww-init.sh"
-        # "hypridle"
         "nm-applet --indicator"
         "blueman-applet"
       ];

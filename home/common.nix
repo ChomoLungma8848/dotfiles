@@ -7,7 +7,6 @@
 {
   imports = [
     inputs.nixvim.homeModules.nixvim
-    ./programs/zsh.nix
     ./programs/fish.nix
     ./programs/nixvim/nixvim.nix
     ./programs/git.nix
@@ -36,12 +35,14 @@
       codex
       jq
       nixfmt
+      prettier
       inputs.graftx.packages.${system}.default
       tealdeer
       btop
       docker-compose
       lazydocker
       python3
+      hunk
     ];
   };
 
