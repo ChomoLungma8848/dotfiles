@@ -3,5 +3,10 @@ result
 result-*
 
 # Personal Claude Code settings (not team-shared)
+# サブディレクトリで claude を起動するとそこに .claude/settings.local.json が作られるため、
+# ルート限定ではなく全階層で無視する
 CLAUDE.local.md
-.claude/settings.local.json
+**/.claude/settings.local.json
+
+# Python bytecode (hooks/ のスクリプト実行で生成される)
+__pycache__/
