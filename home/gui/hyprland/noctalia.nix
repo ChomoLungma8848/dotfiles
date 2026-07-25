@@ -253,7 +253,7 @@
           builtin_ids = [
             "btop"
             "hyprland"
-            "wezterm"
+            # "wezterm"
           ];
           community_ids = [
             "zen_browser"
@@ -274,17 +274,17 @@
           "honeycomb"
         ];
         transition_duration = 3000;
-        transition_on_startup = true;
+        # transition_on_startup = true;
 
         directory = "/home/chomo/Wallpaper";
         default.path = "/home/chomo/Wallpaper/wallpaper-1.png";
 
-        automation = {
-          enabled = true;
-          interval_seconds = 300;
-          order = "random";
-          recursive = "true";
-        };
+        # automation = {
+        #   enabled = true;
+        #   interval_seconds = 600;
+        #   order = "random";
+        #   recursive = "true";
+        # };
       };
 
       widget = {
