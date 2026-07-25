@@ -37,6 +37,7 @@ description: 解決済みのトラブルシューティング・技術的な意�
 判定基準は1つだけ:「**このプロジェクト以外でも役立つ知見か?**」Yes なら `user`、その場限り(このリポジトリ固有の設定・このサービス固有の障害など)なら `project`。
 
 迷ったら **AskUserQuestion** で確認する。よくある誤判定:
+
 - 「Nixのoverride/overrideAttrsの挙動」のような言語・ツールの一般知識 → `user`
 - 「このdotfilesリポジトリのos/gui.nixでこう直した」のような、このリポジトリの設定値そのもの → `project`
 - 同じ会話の中にこの両方が混ざっていることはよくある。その場合は遠慮せずファイルを分割する。
@@ -59,7 +60,7 @@ grep -ril "<キーワード>" <project-root>/.claude/knowledge 2>/dev/null
 
 ナレッジファイル同士をリンクするときは、`@` + **絶対パス**を使う。
 
-```
+```text
 related: ["@/home/chomo/.claude/knowledge/research/2026-06-10-nix-override-composition.md"]
 ```
 

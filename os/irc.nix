@@ -21,7 +21,9 @@ in
       };
 
       listeners = {
-        ":6697" = { tls = true; };
+        ":6697" = {
+          tls = true;
+        };
       };
     };
 
@@ -40,5 +42,8 @@ in
   };
 
   users.users.ergo.extraGroups = [ "acme" ];
-  networking.firewall.allowedTCPPorts = [ 80 6697 ];
+  networking.firewall.allowedTCPPorts = [
+    80
+    6697
+  ];
 }
