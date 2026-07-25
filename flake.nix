@@ -54,8 +54,29 @@
       {
         formatter = treefmt-nix.lib.mkWrapper pkgs {
           projectRootFile = "flake.nix";
+          # archive/ は import グラフから外した未使用ファイル置き場。
+          # 整形すると使っていないファイルが nix fmt のたびに差分を生むため除外する
+          settings.global.excludes = [ "archive/**" ];
           programs = {
-            nixfmt.enable = true;
+            nixfmt.enable = true; # Nix
+            taplo.enable = true; # TOML
+            stylua.enable = true; # Lua
+            yamlfmt.enable = true; # YAML
+            rumdl-format.enable = true; # Markdown
+            biome = {
+              # JSON。biome は JS/TS/CSS も扱うが、対象を JSON に限定して使う
+              enable = true;
+              formatCommand = "format";
+              includes = [
+                "*.json"
+                "*.jsonc"
+              ];
+              # biome の既定はタブ。他のフォーマッタに合わせて 2 スペースにする
+              settings.formatter = {
+                indentStyle = "space";
+                indentWidth = 2;
+              };
+            };
           };
         };
 
