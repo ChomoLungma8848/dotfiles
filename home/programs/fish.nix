@@ -49,6 +49,26 @@
           cd (ghq root)/$repo
         end
       '';
+
+      # サブディレクトリで起動すると claude が cwd をプロジェクトルートとみなし、
+      # ルートの settings.json / CLAUDE.md を読まず、その場に .claude を作ってしまう。
+      # git ルートへ移動してから起動することで常にルート起点に固定する。
+      # claude 終了後はシェルの cwd を元に戻す (pushd/popd)。
+      # git 管理外や意図的にサブディレクトリで起動したい場合は `command claude` を使う。
+      claude = {
+        wraps = "claude";
+        description = "Launch claude from the git repository root";
+        body = ''
+          set -l root (git rev-parse --show-toplevel 2>/dev/null)
+          if test -n "$root"; and test "$root" != "$PWD"
+            pushd $root
+            command claude $argv
+            popd
+          else
+            command claude $argv
+          end
+        '';
+      };
     };
 
     preferAbbrs = true;
