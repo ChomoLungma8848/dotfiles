@@ -42,6 +42,7 @@
       docker-compose
       lazydocker
       python3
+      uv
       hunk
     ];
   };
