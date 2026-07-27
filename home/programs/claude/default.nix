@@ -36,13 +36,18 @@ let
   # tui / teammateMode など) は「あえて書かない」。書くと TUI での変更が
   # 次の switch で巻き戻る。マシン間で揃えたくなったキーだけをここへ昇格させる。
   settingsFragment = (pkgs.formats.json { }).generate "claude-settings-fragment.json" {
+    language = "japanese";
     env = {
       CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS = "1";
       CLAUDE_CODE_NEW_INIT = "1";
     };
-    permissions.defaultMode = "plan";
-    language = "japanese";
+    permissions.defaultMode = "auto";
+    autoMemoryEnabled = false; 
+    autoCompactEnabled = false;
+    teammateMode = "auto";
     respectGitIgnore = false;
+    remoteControlAtStartup = true;
+    agentPushNotifEnabled = true;
     hooks.Stop = [
       {
         hooks = [
@@ -56,7 +61,10 @@ let
     enabledPlugins = {
       "skill-creator@claude-plugins-official" = true;
       "commit@cc-utility" = true;
+      "handoff@cc-utility" = true;
     };
+    tui = "fullscreen";
+    theme = "dark";
   };
 in
 {
