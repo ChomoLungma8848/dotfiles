@@ -1,15 +1,21 @@
 { pkgs, ... }:
+let
+  hypr-display = pkgs.callPackage ./display.nix { };
+in
 {
   imports = [
     ./noctalia.nix
   ];
 
-  # スクリーンショット用ツール
-  home.packages = with pkgs; [
+  home.packages = [
+    hypr-display
+  ]
+  ++ (with pkgs; [
+    # スクリーンショット用ツール
     grim
     slurp
     wl-clipboard
-  ];
+  ]);
 
   # fcitx5用の環境変数
   home.sessionVariables = {
@@ -27,6 +33,9 @@
     configType = "hyprlang";
     settings = {
       # モニター設定（自動検出）
+      # 環境ごとに変わるモニター名はここに書かない。並び順を変えたいときは
+      # $mod SHIFT, P（左右反転）で行う。$mod, P / $mod SHIFT, P はどちらも
+      # この定義を hyprctl reload で読み直すため、解像度・スケールの権威はここに残る。
       monitor = ",preferred,auto,1";
 
       # fcitx5用環境変数（Hyprland経由で起動するアプリに確実に渡す）
@@ -137,6 +146,12 @@
         "$mod, comma, exec, noctalia msg settings-toggle"
         "$mod, V, exec, noctalia msg panel-toggle clipboard"
         "$mod, Escape, exec, noctalia msg session lock"
+
+        # ディスプレイモード切り替え（Windows の Win+P 相当）
+        # 拡張 → 複製 → 内蔵のみ → 外部のみ を巡回する
+        "$mod, P, exec, ${hypr-display}/bin/hypr-display cycle"
+        # モニターの左右の並び順を反転する
+        "$mod SHIFT, P, exec, ${hypr-display}/bin/hypr-display flip"
 
         "$mod, Return, exec, wezterm"
         "$mod, Q, killactive,"
