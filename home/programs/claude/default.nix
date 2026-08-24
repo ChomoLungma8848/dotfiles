@@ -42,7 +42,7 @@ let
       CLAUDE_CODE_NEW_INIT = "1";
     };
     permissions.defaultMode = "auto";
-    autoMemoryEnabled = false; 
+    autoMemoryEnabled = false;
     autoCompactEnabled = false;
     teammateMode = "auto";
     respectGitIgnore = false;
