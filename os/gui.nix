@@ -17,6 +17,9 @@
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
+  # バッテリー
+  services.upower.enable = true;
+
   # X11 / GNOME
   # services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
