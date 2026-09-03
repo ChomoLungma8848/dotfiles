@@ -35,6 +35,8 @@
         "nix-command"
         "flakes"
       ];
+      # substituter / 署名鍵の追加を home/ 側から行えるようにする
+      trusted-users = [ "chomo" ];
     };
     gc = {
       automatic = true;
