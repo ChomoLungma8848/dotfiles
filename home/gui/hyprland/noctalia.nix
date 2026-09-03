@@ -1,8 +1,21 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 {
   home.packages = with pkgs; [
     fastfetch
   ];
+
+  nix = {
+    package = pkgs.nix;
+    settings = {
+      extra-substituters = [ "https://noctalia.cachix.org" ];
+      extra-trusted-public-keys = [
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      ];
+    };
+  };
 
   programs.noctalia = {
     enable = true;
@@ -71,7 +84,7 @@
         };
       };
 
-      calender = {
+      calendar = {
         enabled = true;
       };
 
@@ -84,12 +97,10 @@
       desktop_widgets = {
         schema_version = 2;
         widget_order = [ ];
-        desktop_widgets = {
-          grid = {
-            cell_size = 16;
-            major_interval = 4;
-            visible = true;
-          };
+        grid = {
+          cell_size = 16;
+          major_interval = 4;
+          visible = true;
         };
 
         widget = { };
@@ -149,76 +160,11 @@
       lockscreen_widgets = {
         enabled = true;
         schema_version = 2;
-        # widget_order = [
-        #   "lockscreen-login-box@HDMI-A-1"
-        #   "lockscreen-widget-0000000000000001"
-        #   "lockscreen-widget-0000000000000002"
-        # ];
-
         grid = {
           cell_size = 8;
           major_interval = 4;
           visible = true;
         };
-
-        # widget = {
-        #   "lockscreen-login-box@HDMI-A-1" = {
-        #     box_height = 70.0;
-        #     box_width = 400.0;
-        #     cx = 960.0;
-        #     cy = 961.0;
-        #     output = "HDMI-A-1";
-        #     rotation = 0.0;
-        #     type = "login_box";
-        #     settings = {
-        #       background_color = "surface_variant";
-        #       background_opacity = 0.88;
-        #       background_radius = 12.0;
-        #       input_opacity = 1.0;
-        #       input_radius = 6.0;
-        #       show_login_button = true;
-        #     };
-        #   };
-        #
-        #   lockscreen-widget-0000000000000001 = {
-        #     box_height = 88.0;
-        #     box_width = 200.0;
-        #     cx = 1468.0;
-        #     cy = 364.0;
-        #     output = "HDMI-A-1";
-        #     rotation = 0.0;
-        #     type = "clock";
-        #     settings = {
-        #       background = false;
-        #       background_color = "on_primary";
-        #       background_opacity = 0.7;
-        #       background_padding = 15.0;
-        #       background_radius = 32.0;
-        #       center_text = true;
-        #       clock_style = "digital";
-        #       color = "#719AC6";
-        #       font_family = "JetBrainsMono Nerd Font";
-        #       format = "{:%H:%M}";
-        #       shadow = false;
-        #     };
-        #   };
-        #
-        #   lockscreen-widget-0000000000000002 = {
-        #     box_height = 264.0;
-        #     box_width = 432.0;
-        #     cx = 472.0;
-        #     cy = 344.0;
-        #     output = "HDMI-A-1";
-        #     rotation = 0.0;
-        #     type = "weather";
-        #     settings = {
-        #       background_opacity = 0.65;
-        #       background_radius = 32.0;
-        #       color = "primary";
-        #       show_forecast = true;
-        #     };
-        #   };
-        # };
       };
 
       notification = {
@@ -236,10 +182,9 @@
         screen_time_enabled = true;
         settings_show_advanced = true;
         panel = {
-          launcher_session_search = true;
           open_near_click_control_center = true;
           open_near_click_session = true;
-          session_placement = "centered";
+          session_placement = "attached";
         };
         screenshot = {
           save_to_file = false;
@@ -256,7 +201,7 @@
             # "wezterm"
           ];
           community_ids = [
-            "zen_browser"
+            "zen-browser"
             "discord"
           ];
         };
@@ -278,6 +223,7 @@
 
         directory = "/home/chomo/Wallpaper";
         default.path = "/home/chomo/Wallpaper/wallpaper-1.png";
+        default.last = "/home/chomo/Wallpaper/wallpaper-1.png";
 
         # automation = {
         #   enabled = true;
@@ -315,7 +261,7 @@
 
         cpu = {
           anchor = true;
-          show_label = false;
+          show_value = false;
         };
 
         launcher = {
@@ -332,11 +278,11 @@
 
         network_rx = {
           anchor = true;
-          show_label = false;
+          show_value = false;
         };
 
         network_tx = {
-          show_label = false;
+          show_value = false;
         };
 
         notifications = {
@@ -347,17 +293,13 @@
 
         ram = {
           anchor = true;
-          show_label = false;
+          show_value = false;
         };
 
         session = {
           anchor = true;
           glyph = "snowflake";
           scale = 1.25;
-        };
-
-        spacer_1 = {
-          type = "spacer";
         };
 
         taskbar = {
@@ -367,7 +309,7 @@
 
         temp = {
           anchor = true;
-          show_label = false;
+          show_value = false;
         };
 
         tray = {
@@ -384,12 +326,6 @@
         weather = {
           anchor = true;
           show_condition = false;
-        };
-
-        workspaces = {
-          anchor = true;
-          font_weight = 800;
-          scale = 1.3;
         };
       };
     };
