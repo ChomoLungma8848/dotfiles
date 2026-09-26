@@ -25,6 +25,7 @@
       inputs.zen-browser.packages.${system}.default
       libreoffice
       blender
+      steam
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
