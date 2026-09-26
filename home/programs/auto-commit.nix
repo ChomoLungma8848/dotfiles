@@ -1,7 +1,14 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  inputs,
+  system,
+  ...
+}:
 let
   # 自動コミット対象の作業ディレクトリ
   workDir = "${config.home.homeDirectory}/ghq/github.com/ChomoLungma8848/dotfiles";
+  claude-code = inputs.llm-agents.packages.${system}.claude-code;
 in
 {
   systemd.user.services.auto-commit = {
@@ -16,7 +23,7 @@ in
       Environment = [
         "PATH=${
           pkgs.lib.makeBinPath [
-            pkgs.claude-code
+            claude-code
             pkgs.bash
             pkgs.git
             pkgs.gh
@@ -27,7 +34,7 @@ in
         # claude の Bash ツールがシェルを起動するために必要
         "SHELL=${pkgs.bash}/bin/bash"
       ];
-      ExecStart = ''${pkgs.claude-code}/bin/claude --model sonnet --effort high -p "/commit auto"'';
+      ExecStart = ''${claude-code}/bin/claude --model sonnet --effort high -p "/commit auto"'';
     };
   };
 

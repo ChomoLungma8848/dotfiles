@@ -8,7 +8,6 @@
   ];
 
   nix = {
-    package = pkgs.nix;
     settings = {
       extra-substituters = [ "https://noctalia.cachix.org" ];
       extra-trusted-public-keys = [

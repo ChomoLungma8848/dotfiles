@@ -31,12 +31,12 @@
       ghq
       lazygit
       fzf
-      claude-code
-      codex
       jq
       nixfmt
       prettier
       inputs.graftx.packages.${system}.default
+      inputs.llm-agents.packages.${system}.claude-code
+      inputs.llm-agents.packages.${system}.codex
       tealdeer
       btop
       docker-compose
@@ -48,6 +48,16 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
+  nix = {
+    package = pkgs.nix;
+    settings = {
+      extra-substituters = [ "https://cache.numtide.com" ];
+      extra-trusted-public-keys = [
+        "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
+      ];
+    };
+  };
 
   programs.home-manager.enable = true;
 }

@@ -25,6 +25,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     graftx.url = "github:myuron/graftx";
+    llm-agents.url = "github:numtide/llm-agents.nix";
     org-babel.url = "github:emacs-twist/org-babel";
   };
 
