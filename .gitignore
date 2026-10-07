@@ -10,3 +10,7 @@ CLAUDE.local.md
 
 # Python bytecode (hooks/ のスクリプト実行で生成される)
 __pycache__/
+
+# ~/.claude/skills は home/programs/claude/skills へ symlink されており、
+# Claude Code 本体の skill 自動同期機能がここにキャッシュを書き込む
+home/programs/claude/skills/synced/
